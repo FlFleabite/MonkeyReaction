@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/MonkeyReaction/static/css/main.da058b56.css",
-    "main.js": "/MonkeyReaction/static/js/main.2ff91eb6.js",
+    "main.js": "/MonkeyReaction/static/js/main.157ccbb0.js",
     "static/js/787.0f8d78ff.chunk.js": "/MonkeyReaction/static/js/787.0f8d78ff.chunk.js",
     "static/media/nordhealth-sans.woff2": "/MonkeyReaction/static/media/nordhealth-sans.aaa17e8f090e449283a1.woff2",
     "static/media/nordhealth-mono.woff": "/MonkeyReaction/static/media/nordhealth-mono.336c829bcd5d167e6d79.woff",
     "index.html": "/MonkeyReaction/index.html",
     "main.da058b56.css.map": "/MonkeyReaction/static/css/main.da058b56.css.map",
-    "main.2ff91eb6.js.map": "/MonkeyReaction/static/js/main.2ff91eb6.js.map",
+    "main.157ccbb0.js.map": "/MonkeyReaction/static/js/main.157ccbb0.js.map",
     "787.0f8d78ff.chunk.js.map": "/MonkeyReaction/static/js/787.0f8d78ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.da058b56.css",
-    "static/js/main.2ff91eb6.js"
+    "static/js/main.157ccbb0.js"
   ]
 }
