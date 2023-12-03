@@ -7,6 +7,10 @@ body {
   text-align: center;
 }
 
+.time {
+  font-size: 40px;
+}
+
 #weatherforcast {
   display: flex;
   justify-content: center;

@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react'
+import dayjs from 'dayjs'
 import "@nordhealth/css"
 import "@nordhealth/themes/lib/nord-dark.css"
 
@@ -18,10 +19,16 @@ function App() {
 }
 
 function Header() {
+  const day = function () {
+    const dt = dayjs(new Date());
+    const element = document.getElementById("time");
+    element.innerHTML = `${dt.format('HH')}<span id="colon">:</span>${dt.format('mm')}<span id="colon">:</span>${dt.format('ss')}`;
+  };
+  setInterval(day, 1000)
   return (
-    <header>
-      <h1>Monkey Reaction</h1>
-    </header>
+    <div>
+      <h1 className="time" id="time">Loading...</h1>
+    </div>
   );
 }
 
