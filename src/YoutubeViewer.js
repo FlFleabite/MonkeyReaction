@@ -1,31 +1,14 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { Button, Input, Stack, Dropdown, DropdownItem } from "@nordhealth/react"
 
-const useWindowSize = () => {
-  const [size, setSize] = useState([0, 0]);
-  useLayoutEffect(() => {
-    const updateSize = () => {
-      setSize([window.innerWidth, window.innerHeight]);
-    };
-
-    window.addEventListener('resize', updateSize);
-    updateSize();
-
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
-  return size;
-};
-
 export function YoutubeViewer(props) {
   const youtubeId = props.youtubeId;
   const youtubeURL = youtubeId
   ? "https://www.youtube.com/embed/" + youtubeId + "?controls=0&autoplay=1&mute=1"
   : "https://www.youtube.com/embed/lsxYH2XQQCg?controls=0&autoplay=1&mute=1";
 
-  const [width, height] = useWindowSize()
-
   return (
-    <iframe class="youtube-embed" id="youtube-embed" width="100%" aspect-ratio="16 / 9" src={youtubeURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <iframe className="youtube-embed" id="youtube-embed" width="100%" aspect-ratio="16 / 9" src={youtubeURL} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
   );
 }
 

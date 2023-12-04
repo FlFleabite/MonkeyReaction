@@ -88,7 +88,7 @@ export class Lader extends Component {
     return (
       <div>
         <a href="https://tenki.jp/radar/5/25/">
-          <img width="400" height="auto" src={this.state.url} alt="" />
+          <img id="rader-image" width="400" height="auto" src={this.state.url} alt="" />
         </a>
       </div>
     );

@@ -11,7 +11,7 @@ body {
   font-size: 40px;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 900px) {
   .stack {
     flex-direction: column;
   }
@@ -26,9 +26,24 @@ body {
   margin: auto;
 }
 
+#rader-image {
+  width: 400px;
+}
+@media screen and (max-width: 460px) {
+  #rader-image {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
 #youtube-embed {
   width: 90%;
   aspect-ratio: 16 / 9;
   padding: auto;
   padding-top: 20px;
+}
+@media screen and (min-width: 900px) {
+  #youtube-embed {
+    width: 880px;
+  }
 }
