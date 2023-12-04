@@ -1,5 +1,5 @@
-import React, { useState, useLayoutEffect } from 'react';
-import { Button, Input, Stack, Dropdown, DropdownItem } from "@nordhealth/react"
+import React from 'react';
+import { Button, Input, Stack, Dropdown, DropdownItem, Icon } from "@nordhealth/react"
 
 export function YoutubeViewer(props) {
   const youtubeId = props.youtubeId;
@@ -25,28 +25,36 @@ export function YoutubeURLInput() {
   function insertURLText(text) {
     const urlElement = document.getElementById("youtube-url-input")
     if (urlElement) { urlElement.value = text }
-    redirectWithYoutubeQuery(text)
+   
+    const dropdown = document.getElementById('template-dropdown');
+    if (dropdown) {
+      dropdown.hide()
+    }
   }
 
   return (
     <Stack gap="s" direction="horizontal" justify-content="center" align-items="end" wrap>
       <div>URL</div>
-      <Dropdown>
-        <Input id='youtube-url-input' slot="toggle"></Input>
-        <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch/?v=lsxYH2XQQCg")}>
-          Monkey
-        </DropdownItem>
-        <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=xJ13WFvc6Do")}>
-          AQUAPLANET JEJU
-        </DropdownItem>
-        <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=gFRtAAmiFbE")}>
-          Kabukicho
-        </DropdownItem>
-        <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=x_fHq3B_UP4")}>
-          "T2" HANEDA,Tokyo International Airport
-        </DropdownItem>
+      <Input id='youtube-url-input'>
+        <Dropdown id='template-dropdown' slot='end'>
+          <Button slot='toggle'>
+            <Icon name="arrow-down-small"></Icon>
+          </Button>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch/?v=lsxYH2XQQCg")}>
+            Monkey
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=xJ13WFvc6Do")}>
+            AQUAPLANET JEJU
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=gFRtAAmiFbE")}>
+            Kabukicho
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=x_fHq3B_UP4")}>
+            "T2" HANEDA,Tokyo International Airport
+          </DropdownItem>
 
-      </Dropdown>
+        </Dropdown>
+      </Input>
       <Button onClick={() => { onYoutubeGoButtonClicked() }}>
         <nord-icon name="arrow-refresh"></nord-icon>
       </Button>
