@@ -43,6 +43,9 @@ export function YoutubeURLInput() {
           <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch/?v=lsxYH2XQQCg")}>
             Monkey
           </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=HXp5x6llMo4")}>
+            Bird
+          </DropdownItem>
           <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=xJ13WFvc6Do")}>
             AQUAPLANET JEJU
           </DropdownItem>
@@ -52,7 +55,21 @@ export function YoutubeURLInput() {
           <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=x_fHq3B_UP4")}>
             "T2" HANEDA,Tokyo International Airport
           </DropdownItem>
-
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=P9C25Un7xaM")}>
+            NASA
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=7BGWIFgWMZg")}>
+            Shin-Midosuji
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=MLYAzkVCSps")}>
+            Obento
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=4GOt6b4kMjg")}>
+            Otera
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=9Bq76emgglg")}>
+            ZAZA
+          </DropdownItem>
         </Dropdown>
       </Input>
       <Button onClick={() => { onYoutubeGoButtonClicked() }}>
