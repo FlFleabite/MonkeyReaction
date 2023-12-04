@@ -3,6 +3,7 @@ import React from 'react'
 import dayjs from 'dayjs'
 import "@nordhealth/css"
 import "@nordhealth/themes/lib/nord-dark.css"
+import { Stack } from "@nordhealth/react"
 
 import { WeatherForcast, Lader } from './WeatherForcast';
 import { YoutubeViewer, YoutubeURLInput } from './YoutubeViewer';
@@ -33,9 +34,12 @@ function Header() {
 }
 
 function Body(props) {
-  return (<div>
-    <WeatherForcast />
-    <Lader />
+  return (
+  <div>
+    <Stack direction="horizontal" class="stack" justify-content="center" align-items="center">
+      <WeatherForcast />
+      <Lader />
+    </Stack>
     <YoutubeViewer youtubeId={props.youtubeId} />
     <YoutubeURLInput />
   </div>

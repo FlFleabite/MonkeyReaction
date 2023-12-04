@@ -11,12 +11,24 @@ body {
   font-size: 40px;
 }
 
+@media (max-width: 880px) {
+  .stack {
+    flex-direction: column;
+  }
+}
+
 #weatherforcast {
   display: flex;
   justify-content: center;
-  height: 300px;
 }
 
 #weather-wrapper {
   margin: auto;
+}
+
+#youtube-embed {
+  width: 90%;
+  aspect-ratio: 16 / 9;
+  padding: auto;
+  padding-top: 20px;
 }
