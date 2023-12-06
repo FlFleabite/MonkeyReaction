@@ -35,14 +35,16 @@ function Header() {
 
 function Body(props) {
   return (
-  <div>
-    <Stack direction="horizontal" class="stack" justify-content="center" align-items="center">
-      <WeatherForcast />
-      <Lader />
-    </Stack>
-    <YoutubeViewer youtubeId={props.youtubeId} />
-    <YoutubeURLInput />
-  </div>
+    <div>
+      <Stack direction="horizontal" class="stack" justify-content="center" align-items="center">
+        <WeatherForcast />
+        <Lader />
+      </Stack>
+      <div class="n-padding-be-m">
+        <YoutubeViewer youtubeId={props.youtubeId} />
+        <YoutubeURLInput />
+      </div>
+    </div>
   );
 }
 
