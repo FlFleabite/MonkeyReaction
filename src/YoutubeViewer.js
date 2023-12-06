@@ -46,6 +46,15 @@ export function YoutubeURLInput() {
           <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=HXp5x6llMo4")}>
             Bird
           </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=3szkFHfr6sA")}>
+            Panda
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=s0IljzivoRY")}>
+            Nyancat
+          </DropdownItem>
+          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=zxej04WQ9lI")}>
+            Nyanko Kingdom
+          </DropdownItem>
           <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=xJ13WFvc6Do")}>
             AQUAPLANET JEJU
           </DropdownItem>
