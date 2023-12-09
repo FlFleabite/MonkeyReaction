@@ -1,17 +1,28 @@
-import React, { Component } from "react";
+import React, { Component, createElement } from "react";
 import { Helmet } from 'react-helmet';
 
 export class WeatherForcast extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: "https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/weather.js",
+      location: props.location ? props.location : "静岡県浜松市中区"
+    };
+  }
 
   componentDidMount() {
     /* 30分毎の自動更新をフックする */
     setInterval(() => {
-      this.forceUpdate()
+      const urlObj = new URL(this.state.url)
+      const params = urlObj.searchParams
+      params.set("t", new Date().getTime()) /* キャッシュ回避のために意味のない時刻情報をクエリに入れておく */
+      this.setState({ url: urlObj.toString() })
       console.log("update weatherforcast")
     }, 1.8e+6)
   }
 
   render() {
+    console.log("render")
     const css = `
   .max_temp{ 
     display:inline-block !important
@@ -39,6 +50,14 @@ export class WeatherForcast extends Component {
   }
   `;
 
+    const scriptElement = createElement("script", { type: "text/javascript" },
+      `weather_value = 7;
+      lat = 34.710808;
+      lon = 137.726303;
+      inputText1 = '##LOCATION##';
+      search_add = inputText1;
+      `.replace('##LOCATION##', this.state.location))
+
     return (
       <div>
         <style>{css}</style>
@@ -47,16 +66,11 @@ export class WeatherForcast extends Component {
         <Helmet>
           <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
           <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-          <script type="text/javascript">
-            weather_value = 7;
-            lat = 34.710808;
-            lon = 137.726303;
-            inputText1 = "静岡県浜松市中区";
-            search_add = "静岡県浜松市中区";
-          </script>
+          {scriptElement}
           <script src="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/weather.js"></script>
           <link id="PageStyleSheet" rel="stylesheet" href="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/style.css" />
         </Helmet>
+
         <div id="weather-wrapper">
           <div id="weather1"></div>
           <div id="weather2"></div>

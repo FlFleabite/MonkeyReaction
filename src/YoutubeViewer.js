@@ -35,7 +35,7 @@ export function YoutubeURLInput() {
   return (
     <Stack gap="s" direction="horizontal" justify-content="center" align-items="end" wrap>
       <div>URL</div>
-      <Input id='youtube-url-input'>
+      <Input id='youtube-url-input' placeholder='https://www.youtube.com/watch/?v=lsxYH2XQQCg'>
         <Dropdown id='template-dropdown' slot='end'>
           <Button slot='toggle'>
             <Icon name="arrow-down-small"></Icon>

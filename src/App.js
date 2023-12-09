@@ -12,10 +12,10 @@ function App() {
   let currentUrl = new URL(window.location.href);
   const videoId = currentUrl.searchParams.get('v')
   return (
-    <div>
+    <>
       <Header />
       <Body youtubeId={videoId} />
-    </div>
+    </>
   );
 }
 
@@ -27,25 +27,35 @@ function Header() {
   };
   setInterval(day, 1000)
   return (
-    <div>
-      <h1 className="time" id="time">Loading...</h1>
-    </div>
+    <h1 className="time" id="time">Loading...</h1>
   );
 }
 
 function Body(props) {
   return (
     <div>
-      <Stack direction="horizontal" class="stack" justify-content="center" align-items="center">
-        <WeatherForcast />
-        <Lader />
-      </Stack>
-      <div class="n-padding-be-m">
-        <YoutubeViewer youtubeId={props.youtubeId} />
-        <YoutubeURLInput />
-      </div>
+      <WeatherComponens />
+      <YoutubeComponents youtubeId={props.youtubeId}/>
     </div>
   );
+}
+
+function WeatherComponens() {
+  return (
+    <Stack direction="horizontal" class="stack" justify-content="center" align-items="center">
+      <WeatherForcast location="静岡県浜松市中区" />
+      <Lader />
+    </Stack>
+  )
+}
+
+function YoutubeComponents(props) {
+  return (
+    <div class="n-padding-be-m">
+      <YoutubeViewer youtubeId={props.youtubeId} />
+      <YoutubeURLInput />
+    </div>
+  )
 }
 
 
