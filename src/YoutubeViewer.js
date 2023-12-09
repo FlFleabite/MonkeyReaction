@@ -32,6 +32,21 @@ export function YoutubeURLInput() {
     }
   }
 
+  const yotubeTemplates = [
+    { title: "Monkey", url: "https://www.youtube.com/watch/?v=lsxYH2XQQCg" },
+    { title: "Bird", url: "https://www.youtube.com/watch?v=HXp5x6llMo4" },
+    { title: "Panda", url: "https://www.youtube.com/watch?v=3szkFHfr6sA" },
+    { title: "Nyanko Kingdom", url: "https://www.youtube.com/watch?v=zxej04WQ9lI" },
+    { title: "AQUAPLANET JEJU", url: "https://www.youtube.com/watch?v=xJ13WFvc6Do" },
+    { title: "Kabukicho", url: "https://www.youtube.com/watch?v=gFRtAAmiFbE" },
+    { title: "\"T2\" HANEDA,Tokyo International Airport", url: "https://www.youtube.com/watch?v=x_fHq3B_UP4" },
+    { title: "NASA", url: "https://www.youtube.com/watch?v=P9C25Un7xaM" },
+    { title: "Shin-Midosuji", url: "https://www.youtube.com/watch?v=7BGWIFgWMZg" },
+    { title: "Obento", url: "https://www.youtube.com/watch?v=MLYAzkVCSps" },
+    { title: "Otera", url: "https://www.youtube.com/watch?v=4GOt6b4kMjg" },
+    { title: "ZAZA", url: "https://www.youtube.com/watch?v=9Bq76emgglg" },
+  ]
+
   return (
     <Stack gap="s" direction="horizontal" justify-content="center" align-items="end" wrap>
       <div>URL</div>
@@ -40,45 +55,9 @@ export function YoutubeURLInput() {
           <Button slot='toggle'>
             <Icon name="arrow-down-small"></Icon>
           </Button>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch/?v=lsxYH2XQQCg")}>
-            Monkey
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=HXp5x6llMo4")}>
-            Bird
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=3szkFHfr6sA")}>
-            Panda
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=s0IljzivoRY")}>
-            Nyancat
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=zxej04WQ9lI")}>
-            Nyanko Kingdom
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=xJ13WFvc6Do")}>
-            AQUAPLANET JEJU
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=gFRtAAmiFbE")}>
-            Kabukicho
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=x_fHq3B_UP4")}>
-            "T2" HANEDA,Tokyo International Airport
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=P9C25Un7xaM")}>
-            NASA
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=7BGWIFgWMZg")}>
-            Shin-Midosuji
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=MLYAzkVCSps")}>
-            Obento
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=4GOt6b4kMjg")}>
-            Otera
-          </DropdownItem>
-          <DropdownItem onClick={() => insertURLText("https://www.youtube.com/watch?v=9Bq76emgglg")}>
-            ZAZA
-          </DropdownItem>
+          { yotubeTemplates.map((data) => {
+            return <DropdownItem onClick={() => insertURLText(data.url)}> {data.title} </DropdownItem>
+          }) }
         </Dropdown>
       </Input>
       <Button onClick={() => { onYoutubeGoButtonClicked() }}>
