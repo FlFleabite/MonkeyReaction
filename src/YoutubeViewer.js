@@ -55,8 +55,8 @@ export function YoutubeURLInput() {
           <Button slot='toggle'>
             <Icon name="arrow-down-small"></Icon>
           </Button>
-          { yotubeTemplates.map((data) => {
-            return <DropdownItem onClick={() => insertURLText(data.url)}> {data.title} </DropdownItem>
+          { yotubeTemplates.map((data, index) => {
+            return <DropdownItem onClick={() => insertURLText(data.url)} key={index}> {data.title} </DropdownItem>
           }) }
         </Dropdown>
       </Input>

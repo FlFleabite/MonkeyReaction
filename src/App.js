@@ -49,6 +49,32 @@ const SettingDrawer = (props) => {
     props.closeButtonHandler()
   }
 
+  const inputElement = useRef(null)
+
+  const applyHandler = () => {
+    let currentUrl = new URL(window.location.href);
+
+    const input = inputElement.current;
+    console.log(input);
+    const inputText = inputElement.current.value
+    if (inputText) {
+      currentUrl.searchParams.set("location", inputText)
+    }
+    else {
+      currentUrl.searchParams.delete("location")
+    }
+
+    console.log("redirect to:", currentUrl.toString())
+    /* rediect */
+    window.location.href = encodeURI(currentUrl.toString())
+  }
+
+  let currentUrl = new URL(window.location.href);
+  let paramLocationString = ""
+  if (currentUrl.searchParams.has('location')) {
+    paramLocationString = decodeURI(currentUrl.searchParams.get('location'))
+  }
+  
   return (
     <Drawer slot="drawer">
       <Header slot="header">
@@ -62,11 +88,12 @@ const SettingDrawer = (props) => {
       <Stack direction='vertical'>
         <Stack direction='vertical' gap="none">
           <p>Weather Forecast Location (Experimental)
-            <Icon name="interface-help" class="n-margin-is-s" size='s' aria-describedby="tooltip-not-implemeted" />
+            <Icon name="interface-help" class="n-margin-is-s" size='s' aria-describedby="tooltip-not-tested" />
           </p>
-          <Input placeholder='静岡県浜松市中区' expand>
+          <Input ref={inputElement} value={paramLocationString ? paramLocationString : ""} placeholder='静岡県浜松市中区' expand>
           </Input>
-          <Tooltip id="tooltip-not-implemeted" >まだ実装してないよ</Tooltip>
+          
+          <Tooltip id="tooltip-not-tested" >バグるかも</Tooltip>
         </Stack>
 
         <Divider></Divider>
@@ -75,6 +102,7 @@ const SettingDrawer = (props) => {
           <p>
             Lader Location (Experimental)
             <Icon name="interface-help" class="n-margin-is-s" size='s' aria-describedby="tooltip-not-implemeted" />
+            <Tooltip id="tooltip-not-implemeted" >まだ実装してないよ</Tooltip>
           </p>
           <Dropdown size='s'>
             <Button slot='toggle' />
@@ -90,8 +118,7 @@ const SettingDrawer = (props) => {
 
       <Stack slot='footer' direction="horizontal" justify-content="end" gap="s">
         <Button onClick={closeDrawer}>Cancel</Button>
-        <Button variant="primary" aria-describedby="tooltip-no-action">Apply</Button>
-        <Tooltip id="tooltip-no-action" >なにもおきないよ</Tooltip>
+        <Button onClick={applyHandler} variant="primary">Apply</Button>
       </Stack>
     </Drawer>
   )
@@ -121,9 +148,19 @@ const MainContents = (props) => {
 }
 
 const WeatherComponens = () => {
+  let currentUrl = new URL(window.location.href);
+
+  let paramLocationString
+  if (currentUrl.searchParams.has('location')) {
+    paramLocationString = decodeURI(currentUrl.searchParams.get('location'))
+  }
+  else {
+    paramLocationString = "静岡県浜松市中区"
+  }
+
   return (
     <Stack direction="horizontal" class="stack" justify-content="center" align-items="center">
-      <WeatherForcast location="静岡県浜松市中区" />
+      <WeatherForcast location={paramLocationString} />
       <Lader />
     </Stack>
   )

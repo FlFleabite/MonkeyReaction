@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 
 export class WeatherForcast extends Component {
   constructor(props) {
+    console.log(props.location )
     super(props);
     this.state = {
       url: "https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/weather.js",
