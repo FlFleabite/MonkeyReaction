@@ -37,7 +37,7 @@ export function YoutubeURLInput() {
     { title: "Bird", url: "https://www.youtube.com/watch?v=HXp5x6llMo4" },
     { title: "Panda", url: "https://www.youtube.com/watch?v=3szkFHfr6sA" },
     { title: "Nyanko Kingdom", url: "https://www.youtube.com/watch?v=zxej04WQ9lI" },
-    { title: "AQUAPLANET JEJU", url: "https://www.youtube.com/watch?v=xJ13WFvc6Do" },
+    { title: "AQUAPLANET JEJU", url: "https://www.youtube.com/watch?v=jd6C50L0mbM" },
     { title: "Kabukicho", url: "https://www.youtube.com/watch?v=gFRtAAmiFbE" },
     { title: "\"T2\" HANEDA,Tokyo International Airport", url: "https://www.youtube.com/watch?v=x_fHq3B_UP4" },
     { title: "NASA", url: "https://www.youtube.com/watch?v=P9C25Un7xaM" },
@@ -45,6 +45,7 @@ export function YoutubeURLInput() {
     { title: "Obento", url: "https://www.youtube.com/watch?v=MLYAzkVCSps" },
     { title: "Otera", url: "https://www.youtube.com/watch?v=4GOt6b4kMjg" },
     { title: "ZAZA", url: "https://www.youtube.com/watch?v=9Bq76emgglg" },
+    { title: "Namibia", url: "https://www.youtube.com/watch?v=ydYDqZQpim8" },
   ]
 
   return (
