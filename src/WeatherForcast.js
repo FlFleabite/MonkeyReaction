@@ -23,7 +23,6 @@ export class WeatherForcast extends Component {
   }
 
   render() {
-    console.log("render")
     const css = `
   .max_temp{ 
     display:inline-block !important
@@ -84,8 +83,12 @@ export class WeatherForcast extends Component {
 export class Lader extends Component {
   constructor(props) {
     super(props);
+
+    let currentUrl = new URL(window.location.href);
+    const prefIdParam = currentUrl.searchParams.get('pref')
+    const prefId = prefIdParam ? prefIdParam : 25
     this.state = {
-      url: "https://static.tenki.jp/static-images/radar/recent/pref-25-large.jpg"
+      url: "https://static.tenki.jp/static-images/radar/recent/pref-" + prefId + "-large.jpg"
     };
   }
   
